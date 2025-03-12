@@ -6,14 +6,9 @@
 .popup {
   position: relative;
   display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
-/* The actual popup */
 .popup .popuptext {
   visibility: hidden;
   width: 160px;
@@ -35,13 +30,27 @@
   animation: fadeIn 1s;
 }
 
+button {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #005f73;
+}
 </style>
 </head>
 <body style="text-align:center">
 
 <h2>Let's Roll</h2>
 
-<div class="popup" onclick="myFunction()">Play
+<div class="popup">
+  <button onclick="myFunction()">Play</button>
   <span class="popuptext" id="myPopup">You've had enough.</span>
 </div>
 
