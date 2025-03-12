@@ -23,21 +23,46 @@
             color: white;
         }
 
-        /* Expanding Grid Styling */
+        /* Layout: Navigation + Content */
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Navigation (Left Side) */
+        nav {
+            width: 30%;
+            background: #ccc;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Main Content (Right Side) */
+        .main-content {
+            width: 70%;
+            padding: 20px;
+            background-color: #f1f1f1;
+        }
+
+        /* Expanding Grid */
         .expanding-grid {
             text-align: center;
-            padding: 20px;
+            padding-bottom: 20px;
         }
 
         .row {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             gap: 10px;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
 
         .column {
-            width: 30%;
+            flex: 1;
             padding: 50px;
             text-align: center;
             font-size: 25px;
@@ -59,29 +84,6 @@
             cursor: pointer;
         }
 
-        /* Navigation & Article */
-        .content {
-            display: flex;
-            width: 100%;
-        }
-
-        nav {
-            width: 30%;
-            background: #ccc;
-            padding: 20px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        article {
-            width: 70%;
-            background-color: #f1f1f1;
-            padding: 20px;
-        }
-
         footer {
             background-color: #964b68;
             padding: 10px;
@@ -90,10 +92,18 @@
             margin-top: 10px;
         }
 
-        /* Responsive design */
-        @media (max-width: 600px) {
-            .content {
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
                 flex-direction: column;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            .main-content {
+                width: 100%;
             }
 
             .row {
@@ -101,10 +111,6 @@
             }
 
             .column {
-                width: 100%;
-            }
-
-            nav, article {
                 width: 100%;
             }
         }
@@ -116,38 +122,9 @@
     <h2>...land</h2>
 </header>
 
-<!-- Expanding Grid Section -->
-<div class="expanding-grid">
-    <h2>Expanding Grid</h2>
-    <p>Click on the boxes below:</p>
-
-    <div class="row">
-        <div class="column" onclick="openTab('b1');" style="background:green;">Box 1</div>
-        <div class="column" onclick="openTab('b2');" style="background:blue;">Box 2</div>
-        <div class="column" onclick="openTab('b3');" style="background:red;">Box 3</div>
-    </div>
-
-    <div id="b1" class="containerTab" style="background:green">
-        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-        <h2>Box 1</h2>
-        <p>Content for Box 1</p>
-    </div>
-
-    <div id="b2" class="containerTab" style="background:blue">
-        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-        <h2>Box 2</h2>
-        <p>Content for Box 2</p>
-    </div>
-
-    <div id="b3" class="containerTab" style="background:red">
-        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-        <h2>Box 3</h2>
-        <p>Content for Box 3</p>
-    </div>
-</div>
-
-<!-- Flexbox Container for Navigation and Article -->
-<div class="content">
+<!-- Flexbox Layout: Sidebar (Nav) & Main Content -->
+<div class="container">
+    <!-- Navigation (Left Column - Unchanged) -->
     <nav>
         <ul>
             <li><a href="#">Link</a></li>
@@ -156,11 +133,44 @@
         </ul>
     </nav>
 
-    <article>
-        <h1>---</h1>
-        <p>description</p>
-        <p>aaa</p>
-    </article>
+    <!-- Main Content (Right Column) -->
+    <div class="main-content">
+        <!-- Expanding Grid Section (Above the Article Description) -->
+        <div class="expanding-grid">
+            <p>Click on the boxes below:</p>
+
+            <div class="row">
+                <div class="column" onclick="openTab('b1');" style="background:green;">Box 1</div>
+                <div class="column" onclick="openTab('b2');" style="background:blue;">Box 2</div>
+                <div class="column" onclick="openTab('b3');" style="background:red;">Box 3</div>
+            </div>
+
+            <div id="b1" class="containerTab" style="background:green">
+                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                <h2>Box 1</h2>
+                <p>Content for Box 1</p>
+            </div>
+
+            <div id="b2" class="containerTab" style="background:blue">
+                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                <h2>Box 2</h2>
+                <p>Content for Box 2</p>
+            </div>
+
+            <div id="b3" class="containerTab" style="background:red">
+                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                <h2>Box 3</h2>
+                <p>Content for Box 3</p>
+            </div>
+        </div>
+
+        <!-- Article Section (Below the Boxes) -->
+        <article>
+            <h1>---</h1>
+            <p>description</p>
+            <p>aaa</p>
+        </article>
+    </div>
 </div>
 
 <footer>
@@ -169,12 +179,12 @@
 
 <script>
 function openTab(tabName) {
-  var i, x;
-  x = document.getElementsByClassName("containerTab");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  document.getElementById(tabName).style.display = "block";
+    var i, x;
+    x = document.getElementsByClassName("containerTab");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
 }
 </script>
 
