@@ -5,85 +5,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <style>
-* {
-  box-sizing: border-box;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;}
-header {
-  background-color: #964b68;
-  padding: 30px;
-  text-align: center;
-  font-size: 35px;
-  color: white;
-}
-nav {
-  float: left;
-  width: 30%;
-  background: #ccc;
-  padding: 20px;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
+        header {
+            background-color: #964b68;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
 
-article {
-  float: left;
-  padding: 20px;
-  width: 70%;
-  background-color: #f1f1f1;
-}
+        /* Expanding Grid Styling */
+        .expanding-grid {
+            text-align: center;
+            padding: 20px;
+        }
 
-section::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
 
-footer {
-  background-color: #964b68;
-  padding: 10px;
-  text-align: center;
-  color: white;
-}
+        .column {
+            width: 30%;
+            padding: 50px;
+            text-align: center;
+            font-size: 25px;
+            cursor: pointer;
+            color: white;
+        }
 
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
-  }
-}
-</style>
+        .containerTab {
+            display: none;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .closebtn {
+            float: right;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        /* Navigation & Article */
+        .content {
+            display: flex;
+            width: 100%;
+        }
+
+        nav {
+            width: 30%;
+            background: #ccc;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        article {
+            width: 70%;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #964b68;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            margin-top: 10px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .content {
+                flex-direction: column;
+            }
+
+            .row {
+                flex-direction: column;
+            }
+
+            .column {
+                width: 100%;
+            }
+
+            nav, article {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <h2>...land</h2>
+    <h2>...land</h2>
 </header>
 
-<section>
-  <nav>
-    <ul>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link2</a></li>
-      <li><a href="#">Link3</a></li>
-    </ul>
-  </nav>
-  
-  <article>
-    <h1>---</h1>
-    <p>description</p>
-    <p>aaa</p>
-  </article>
-</section>
+<!-- Expanding Grid Section -->
+<div class="expanding-grid">
+    <h2>Expanding Grid</h2>
+    <p>Click on the boxes below:</p>
+
+    <div class="row">
+        <div class="column" onclick="openTab('b1');" style="background:green;">Box 1</div>
+        <div class="column" onclick="openTab('b2');" style="background:blue;">Box 2</div>
+        <div class="column" onclick="openTab('b3');" style="background:red;">Box 3</div>
+    </div>
+
+    <div id="b1" class="containerTab" style="background:green">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <h2>Box 1</h2>
+        <p>Content for Box 1</p>
+    </div>
+
+    <div id="b2" class="containerTab" style="background:blue">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <h2>Box 2</h2>
+        <p>Content for Box 2</p>
+    </div>
+
+    <div id="b3" class="containerTab" style="background:red">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <h2>Box 3</h2>
+        <p>Content for Box 3</p>
+    </div>
+</div>
+
+<!-- Flexbox Container for Navigation and Article -->
+<div class="content">
+    <nav>
+        <ul>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link2</a></li>
+            <li><a href="#">Link3</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <h1>---</h1>
+        <p>description</p>
+        <p>aaa</p>
+    </article>
+</div>
 
 <footer>
-  <p>@s4bsa</p>
+    <p>@s4bsa</p>
 </footer>
+
+<script>
+function openTab(tabName) {
+  var i, x;
+  x = document.getElementsByClassName("containerTab");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  document.getElementById(tabName).style.display = "block";
+}
+</script>
 
 </body>
 </html>
-
