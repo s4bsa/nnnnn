@@ -121,7 +121,7 @@
 <header>
     <h2>Serotonin.net</h2>
 </header>
-    
+
 <div class="container">
     <nav>
         <ul>
@@ -130,30 +130,34 @@
             <li><a href="#">Link3</a></li>
         </ul>
     </nav>
-<p>Which mood bests describes you?</p>
+    
+<article>
+    <h1>What mood bests describes you?</h1>
+</article>
+    
     <div class="main-content">
         <div class="expanding-grid">
             <div class="row">
-                <div class="column" onclick="openTab('b1');" style="background:#51344D;">evil</div>
-                <div class="column" onclick="openTab('b2');" style="background:#6F5060;">happy</div>
-                <div class="column" onclick="openTab('b3');" style="background:#51344D;">silly</div>
+                <div class="column" onclick="openTab('b1');" style="background:#51344D;">Evil</div>
+                <div class="column" onclick="openTab('b2');" style="background:#6F5060;">Happy</div>
+                <div class="column" onclick="openTab('b3');" style="background:#51344D;">Silly</div>
             </div>
 
             <div id="b1" class="containerTab" style="background:#51344D">
                 <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                <h2>You have selected •evil•</h2>
+                <h3>You have selected •Evil•</h3>
                 <p>jpg</p>
             </div>
 
             <div id="b2" class="containerTab" style="background:#6F5060">
                 <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                <h2>You have selected •happy•</h2>
+                <h3>You have selected •Happy•</h3>
                 <p>jpg</p>
             </div>
 
             <div id="b3" class="containerTab" style="background:#51344D">
                 <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                <h2>You have selected •silly•</h2>
+                <h3>You have selected •Silly•</h3>
                 <p>jpg</p>
             </div>
         </div>
@@ -161,7 +165,7 @@
         <article>
             <h1>Welcome Home!</h1>
             <p>It's your lucky day! This site provides all your needs for a little serotonin boost. </p>
-            <p>Earn it! Create it! Here is a spoiler: <span class="spoiler" onclick="toggleSpoiler(this)">Ruin it!</span></p>
+            <p>Earn it! Create it!<span class="spoiler" onclick="toggleSpoiler(this)">Ruin it!</span></p>
         </article>
     </div>
 </div>
