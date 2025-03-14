@@ -91,7 +91,6 @@
             margin-top: 10px;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -113,54 +112,56 @@
                 width: 100%;
             }
         }
+                .spoiler { background: black; color: black; cursor: pointer; }
+        .spoiler.revealed { color: white; }
     </style>
 </head>
 <body>
 
 <header>
-    <h2>Snuggland</h2>
+    <h2>Serotonin.net</h2>
 </header>
     
 <div class="container">
     <nav>
         <ul>
-            <li><a href="gamble.html">FREE Prizes!!!</a></li>
-            <li><a href="#">Link2</a></li>
+            <li><a href="game1.html">FREE Prizes!!!</a></li>
+            <li><a href="comments.html">Ch3wtube</a></li>
             <li><a href="#">Link3</a></li>
         </ul>
     </nav>
-
+<p>Which mood bests describes you?</p>
     <div class="main-content">
         <div class="expanding-grid">
             <div class="row">
-                <div class="column" onclick="openTab('b1');" style="background:#51344D;">heh</div>
-                <div class="column" onclick="openTab('b2');" style="background:#6F5060;">wiwiwi</div>
-                <div class="column" onclick="openTab('b3');" style="background:#51344D;">mao</div>
+                <div class="column" onclick="openTab('b1');" style="background:#51344D;">evil</div>
+                <div class="column" onclick="openTab('b2');" style="background:#6F5060;">happy</div>
+                <div class="column" onclick="openTab('b3');" style="background:#51344D;">silly</div>
             </div>
 
-            <div id="b1" class="containerTab" style="background:green">
+            <div id="b1" class="containerTab" style="background:#51344D">
                 <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                <h2>Box 1</h2>
-                <p>Content for Box 1</p>
+                <h2>You have selected •evil•</h2>
+                <p>jpg</p>
             </div>
 
-            <div id="b2" class="containerTab" style="background:blue">
+            <div id="b2" class="containerTab" style="background:#6F5060">
                 <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                <h2>Box 2</h2>
-                <p>Content for Box 2</p>
+                <h2>You have selected •happy•</h2>
+                <p>jpg</p>
             </div>
 
-            <div id="b3" class="containerTab" style="background:red">
+            <div id="b3" class="containerTab" style="background:#51344D">
                 <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                <h2>Box 3</h2>
-                <p>Content for Box 3</p>
+                <h2>You have selected •silly•</h2>
+                <p>jpg</p>
             </div>
         </div>
 
         <article>
             <h1>Welcome Home!</h1>
-            <p>It's your lucky day! Find ways to earn a serotonin boost. </p>
-            <p>aaa</p>
+            <p>It's your lucky day! This site provides all your needs for a little serotonin boost. </p>
+            <p>Earn it! Create it! Here is a spoiler: <span class="spoiler" onclick="toggleSpoiler(this)">Ruin it!</span></p>
         </article>
     </div>
 </div>
@@ -178,6 +179,9 @@ function openTab(tabName) {
     }
     document.getElementById(tabName).style.display = "block";
 }
+function toggleSpoiler(el) {
+    el.classList.toggle('revealed'); 
+    }
 </script>
 
 </body>
