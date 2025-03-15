@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fun game</title>
+    <title>Simple Slot Machine</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,7 +55,7 @@
         <div class="slot" id="slot2">❓</div>
         <div class="slot" id="slot3">❓</div>
     </div>
-    <button onclick="window.location.href='gamble.html'">Play!</button>
+    <button onclick="spin()">Play!</button>
     <p id="result"></p>
     <script>
         let batteryBars = 4;
@@ -89,6 +89,10 @@
             
             batteryBars--;
             updateBattery();
+            
+            if (batteryBars === 0) {
+                window.location.href = 'gamble.html';
+            }
         }
         
         updateBattery();
