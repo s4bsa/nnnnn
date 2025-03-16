@@ -30,21 +30,40 @@
         .container {
             display: flex;
             width: 100%;
-            min-height: 100vh; 
+            min-height: 100vh; /* Full height of the page */
         }
 
         nav {
             width: 30%;
             background: #ccc;
             padding: 20px;
-            height: 100vh; 
+            height: 100vh; /* Make the sidebar stretch the full height */
             position: sticky;
-            top: 0; 
+            top: 0; /* Keeps it in place when scrolling */
         }
 
         nav ul {
             list-style-type: none;
             padding: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 15px; /* Adds space between each link */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 20px; /* Increases font size */
+            padding: 15px; /* Adds padding around the link */
+            display: block; /* Ensures the link takes up full width of the list item */
+            color: #333; /* Dark color for text */
+            border-radius: 8px;
+            background-color: #ddd; /* Light background color for the link */
+        }
+
+        nav ul li a:hover {
+            background-color: #964b68; /* Background color on hover */
+            color: white; /* Text color on hover */
         }
 
         .main-content {
