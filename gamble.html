@@ -94,11 +94,11 @@
     </div>
     <div class="popup" onclick="togglePopup()">
         <button>Play!</button>
-        <span class="popuptext" id="myPopup">No action available</span>
+        <span class="popuptext" id="myPopup">You've played enough. . .</span>
     </div>
     <p id="result"></p>
     <a id="imageLink" href="index.html" style="display: none;">
-        <img id="popupImage" src="cat.jpg" alt="Back to Home" style="width:331px;height:436px;" />
+        <img id="popupImage" src="smile.jpg" alt="Back to Home"/>
     </a>
     <script>
         function togglePopup() {
@@ -110,7 +110,7 @@
             
             var img = document.getElementById("popupImage");
             var link = document.getElementById("imageLink");
-            img.src = "cat.jpg";
+            img.src = "smile.jpg";
             link.href = "/.";
             link.style.display = "block";
         }
