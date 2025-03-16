@@ -1,159 +1,192 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Stardom Slots</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
     <style>
-        body {
-            font-family: 'Times New Roman', serif;
-            text-align: center;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #22223b;
-            color: white;
-            height: 100vh; /* Ensure the body fills the entire height of the page */
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f1f1f1;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        .slot-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px;
-        }
-        .slot {
-            font-size: 50px;
-        }
-        button {
-            font-size: 20px;
-            padding: 10px;
-            background-color: #ff6347;
-            color: white;
-            font-family: 'Times New Roman', serif;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #ff4500;
-        }
-        .battery {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 20px;
-            border: 4px solid #edf6f9;
-            width: 120px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            background-color: black;
-            color: white;
-            border-radius: 8px;
-        }
-        .bar {
-            width: 20px;
-            height: 20px;
-            background-color: black;
-            border-radius: 5px;
-        }
-        .popup {
-            position: relative;
-            display: inline-block;
-            user-select: none;
-        }
-        .popup .popuptext {
-            visibility: hidden;
-            width: 160px;
-            background-color: #555;
-            color: #fff;
+
+        header {
+            background-color: #964b68;
+            padding: 30px;
             text-align: center;
-            border-radius: 6px;
-            padding: 8px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -80px;
+            font-size: 35px;
+            color: white;
         }
-        .popup .show {
-            visibility: visible;
-            -webkit-animation: fadeIn 1s;
-            animation: fadeIn 1s;
-        }
+
         .container {
             display: flex;
             width: 100%;
-            height: 100%; /* Full height to make the sidebar stretch */
+            min-height: 100%;
         }
+
         nav {
             width: 30%;
             background: #ccc;
             padding: 20px;
-            height: 100%; /* Sidebar takes full height */
+            height: 100%; 
         }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
         .main-content {
             width: 70%;
             padding: 20px;
-            background-color: #f1f1f1;
+            background-color: #fff; 
             display: flex;
             flex-direction: column;
+            min-height: 100%; 
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 20px;
+            height: 80px;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .containerTab {
+            display: none;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .closebtn {
+            float: right;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #964b68;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            .main-content {
+                width: 100%;
+            }
+
+            .row {
+                flex-direction: column;
+            }
+
+            .column {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="battery" id="battery">
-        <div class="bar" id="bar1"></div>
-        <div class="bar" id="bar2"></div>
-        <div class="bar" id="bar3"></div>
-        <div class="bar" id="bar4"></div>
-    </div>
-    <h1>Stardom Slots</h1>
-    <div class="container">
-        <nav>
-            <ul>
-                <li><a href="comments.html">Chutube.com</a></li>
-                <li><a href="game1.html">Win FREE Prizes!!!</a></li>
-                <li><a href="#">Link3</a></li>
-            </ul>
-        </nav>
-        
-        <div class="main-content">
-            <h3>What mood best describes you?</h3>
-            <div class="slot-container">
-                <div class="slot" id="slot1">❓</div>
-                <div class="slot" id="slot2">❓</div>
-                <div class="slot" id="slot3">❓</div>
-            </div>
-            <div class="popup" onclick="togglePopup()">
-                <button>Play!</button>
-                <span class="popuptext" id="myPopup">You've played enough.</span>
-            </div>
-            <p id="Click the image to rewind"></p>
-            <a id="imageLink" href="/." style="display: none;">
-                <img id="popupImage" src="smile.jpg" alt="Back to Home" style="width:225px;height:300px;"/>
-            </a>
+
+<header>
+    <h2>Serotonin.net</h2>
+</header>
+
+<div class="container">
+    <nav>
+        <ul>
+            <li><a href="comments.html">Chutube.com</a></li>
+            <li><a href="game1.html">Win FREE Prizes!!!</a></li>
+            <li><a href="#">Link3</a></li>
+        </ul>
+    </nav>
+    
+    <div class="main-content">
+        <h3>What mood best describes you?</h3>
+        <div class="row">
+            <div class="column" onclick="openTab('b1');" style="background:#51344D;">Evil</div>
+            <div class="column" onclick="openTab('b2');" style="background:#6F5060;">Happy</div>
+            <div class="column" onclick="openTab('b3');" style="background:#51344D;">Silly</div>
         </div>
+
+        <div id="b1" class="containerTab" style="background:#51344D">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h3>You have selected •Evil•</h3>
+            <img src="evil.jpg" alt="burning cat" width="360" height="360"/>
+        </div>
+
+        <div id="b2" class="containerTab" style="background:#6F5060">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h3>You have selected •Happy•</h3>
+            <img src="happy.gif" alt="yaycat" />
+        </div>
+
+        <div id="b3" class="containerTab" style="background:#51344D">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h3>You have selected •Silly•</h3>
+            <img src="silly.jpg" alt="toosilly" width="360" height="360"/>
+        </div>
+
+        <article>
+            <h1>Welcome Home!</h1>
+            <p>It's your lucky day! This site provides all your needs for a little serotonin boost. </p>
+            <p>Earn! Explore! Escape Reality!</p>
+        </article>
     </div>
+</div>
 
-    <footer>
-        <p>by @s4bsa. 2025</p>
-    </footer>
+<footer>
+    <p>by @s4bsa. 2025</p>
+</footer>
 
-    <script>
-        function togglePopup() {
-            var popup = document.getElementById("myPopup");
-            popup.classList.toggle("show");
+<script>
+function openTab(tabName) {
+    var x = document.getElementsByClassName("containerTab");
+    for (var i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+}
+</script>
 
-            var resultText = document.getElementById("Click the image to rewind");
-            resultText.textContent = "Click the image to rewind";
-
-            var img = document.getElementById("popupImage");
-            var link = document.getElementById("imageLink");
-            img.src = "smile.jpg"; 
-            link.href = "/.";
-            link.style.display = "block";
-        }
-    </script>
 </body>
 </html>
