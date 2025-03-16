@@ -98,19 +98,19 @@
     </div>
     <p id="Click the image to rewind"></p>
     <a id="imageLink" href="/." style="display: none;">
-        <img id="popupImage" src="smile.jpg" alt="Back to Home"/>
+        <img id="popupImage" src="smile.jpg" alt="Back to Home" style="width:225px;height:300px;"/>
     </a>
     <script>
         function togglePopup() {
             var popup = document.getElementById("myPopup");
             popup.classList.toggle("show");
-            
-            var resultText = document.getElementById("result");
+
+            var resultText = document.getElementById("Click the image to rewind");
             resultText.textContent = "Click the image to rewind";
-            
+
             var img = document.getElementById("popupImage");
             var link = document.getElementById("imageLink");
-            img.src = "smile.jpg" tyle="width:225px;height:300px;";
+            img.src = "smile.jpg"; 
             link.href = "/.";
             link.style.display = "block";
         }
