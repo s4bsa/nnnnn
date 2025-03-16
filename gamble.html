@@ -97,10 +97,22 @@
         <span class="popuptext" id="myPopup">No action available</span>
     </div>
     <p id="result"></p>
+    <a id="imageLink" href="index.html" style="display: none;">
+        <img id="popupImage" src="cat.jpg" alt="Back to Home" style="width:331px;height:436px;" />
+    </a>
     <script>
         function togglePopup() {
             var popup = document.getElementById("myPopup");
             popup.classList.toggle("show");
+            
+            var resultText = document.getElementById("result");
+            resultText.textContent = "...";
+            
+            var img = document.getElementById("popupImage");
+            var link = document.getElementById("imageLink");
+            img.src = "cat.jpg";
+            link.href = "/.";
+            link.style.display = "block";
         }
     </script>
 </body>
