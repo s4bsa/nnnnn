@@ -94,7 +94,7 @@
     </div>
     <div class="popup" onclick="togglePopup()">
         <button>Play!</button>
-        <span class="popuptext" id="myPopup">You've played enough. . .</span>
+        <span class="popuptext" id="myPopup">You've played enough.</span>
     </div>
     <p id="result"></p>
     <a id="imageLink" href="/.l" style="display: none;">
@@ -106,11 +106,11 @@
             popup.classList.toggle("show");
             
             var resultText = document.getElementById("result");
-            resultText.textContent = "...";
+            resultText.textContent = "Click the image to rewind";
             
             var img = document.getElementById("popupImage");
             var link = document.getElementById("imageLink");
-            img.src = "smile.jpg";
+            img.src = "smile.jpg" tyle="width:225px;height:300px;";
             link.href = "/.";
             link.style.display = "block";
         }
