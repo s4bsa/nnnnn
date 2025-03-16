@@ -1,71 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: 'Times New Roman', Times, serif;
-  background-color: #22223b;
-}
-
-.popup {
-  position: relative;
-  display: inline-block;
-  user-select: none;
-}
-
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-button {
-    font-size: 20px;
-    padding: 10px;
-    background-color: #ff6347;
-    color: white;
-    font-family: 'Times New Roman', serif;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-  background-color: #ff4500;
-}
-</style>
+    <title>Stardom Slots</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #22223b;
+            color: white;
+        }
+        .slot-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px;
+        }
+        .slot {
+            font-size: 50px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px;
+            background-color: #ff6347;
+            color: white;
+            font-family: 'Times New Roman', serif;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff4500;
+        }
+        .battery {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            border: 4px solid #edf6f9;
+            width: 120px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: black;
+            color: white;
+            border-radius: 8px;
+        }
+        .bar {
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            border-radius: 5px;
+        }
+        .popup {
+            position: relative;
+            display: inline-block;
+            user-select: none;
+        }
+        .popup .popuptext {
+            visibility: hidden;
+            width: 160px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+        }
+        .popup .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+    </style>
 </head>
-<body style="text-align:center">
-
-<h2>Let's Roll!</h2>
-
-<div class="popup">
-  <button onclick="myFunction()">Play</button>
-  <span class="popuptext" id="myPopup">You've had enough.</span>
-</div>
-
-<script>
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
-
+<body>
+    <div class="battery" id="battery">
+        <div class="bar" id="bar1"></div>
+        <div class="bar" id="bar2"></div>
+        <div class="bar" id="bar3"></div>
+        <div class="bar" id="bar4"></div>
+    </div>
+    <h1>Stardom Slots</h1>
+    <div class="slot-container">
+        <div class="slot" id="slot1">❓</div>
+        <div class="slot" id="slot2">❓</div>
+        <div class="slot" id="slot3">❓</div>
+    </div>
+    <div class="popup" onclick="togglePopup()">
+        <button>Play!</button>
+        <span class="popuptext" id="myPopup">No action available</span>
+    </div>
+    <p id="result"></p>
+    <script>
+        function togglePopup() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
 </body>
 </html>
