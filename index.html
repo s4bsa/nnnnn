@@ -11,8 +11,11 @@
             padding: 0;
         }
 
-      body {
-  font-family: 'Times New Roman', Times, serif;
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f1f1f1;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
@@ -28,7 +31,6 @@
             width: 100%;
         }
 
-
         nav {
             width: 30%;
             background: #ccc;
@@ -40,11 +42,12 @@
             padding: 0;
         }
 
-  
         .main-content {
             width: 70%;
             padding: 20px;
             background-color: #f1f1f1;
+            display: flex;
+            flex-direction: column;
         }
 
         .row {
@@ -56,8 +59,8 @@
 
         .column {
             flex: 1;
-            padding: 20px; 
-            height: 80px; 
+            padding: 20px;
+            height: 80px;
             text-align: center;
             font-size: 18px;
             cursor: pointer;
@@ -84,16 +87,16 @@
         }
 
         footer {
-          position: fixed;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          background-color:#964b68;
-          color: white;
-          text-align: center;
-          padding: 10px 0;
-          font-weight: bold;
-            }
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #964b68;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: bold;
+        }
 
         @media (max-width: 768px) {
             .container {
@@ -116,8 +119,6 @@
                 width: 100%;
             }
         }
-                .spoiler { background: black; color: black; cursor: pointer; }
-        .spoiler.revealed { color: white; }
     </style>
 </head>
 <body>
@@ -130,43 +131,41 @@
     <nav>
         <ul>
             <li><a href="comments.html">Chutube.com</a></li>
-             <li><a href="game1.html">Win FREE Prizes!!!</a></li>
+            <li><a href="game1.html">Win FREE Prizes!!!</a></li>
             <li><a href="#">Link3</a></li>
         </ul>
     </nav>
     
     <div class="main-content">
-         <h3>What mood bests describes you?</h3>
-        <div class="expanding-grid">
-            <div class="row">
-                <div class="column" onclick="openTab('b1');" style="background:#51344D;">Evil</div>
-                <div class="column" onclick="openTab('b2');" style="background:#6F5060;">Happy</div>
-                <div class="column" onclick="openTab('b3');" style="background:#51344D;">Silly</div>
-            </div>
+        <h3>What mood best describes you?</h3>
+        <div class="row">
+            <div class="column" onclick="openTab('b1');" style="background:#51344D;">Evil</div>
+            <div class="column" onclick="openTab('b2');" style="background:#6F5060;">Happy</div>
+            <div class="column" onclick="openTab('b3');" style="background:#51344D;">Silly</div>
+        </div>
 
-            <div id="b1" class="containerTab" style="background:#51344D">
-                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                <h3>You have selected •Evil•</h3>
-                <img src="evil.jpg" alt="burning cat" width="360" height="360"/>
-            </div>
+        <div id="b1" class="containerTab" style="background:#51344D">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h3>You have selected •Evil•</h3>
+            <img src="evil.jpg" alt="burning cat" width="360" height="360"/>
+        </div>
 
-            <div id="b2" class="containerTab" style="background:#6F5060">
-                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                <h3>You have selected •Happy•</h3>
-                <img src="happy.gif" alt="yaycat" />
-            </div>
+        <div id="b2" class="containerTab" style="background:#6F5060">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h3>You have selected •Happy•</h3>
+            <img src="happy.gif" alt="yaycat" />
+        </div>
 
-            <div id="b3" class="containerTab" style="background:#51344D">
-                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                <h3>You have selected •Silly•</h3>
-                <img src="silly.jpg" alt="toosilly" width="360" height="360"/>
-            </div>
+        <div id="b3" class="containerTab" style="background:#51344D">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h3>You have selected •Silly•</h3>
+            <img src="silly.jpg" alt="toosilly" width="360" height="360"/>
         </div>
 
         <article>
             <h1>Welcome Home!</h1>
             <p>It's your lucky day! This site provides all your needs for a little serotonin boost. </p>
-            <p>Earn it! Double it! <span class="spoiler" onclick="toggleSpoiler(this)">Burn it!</span></p>
+            <p>Earn! Explore! Escape Reality!</p>
         </article>
     </div>
 </div>
@@ -177,16 +176,12 @@
 
 <script>
 function openTab(tabName) {
-    var i, x;
-    x = document.getElementsByClassName("containerTab");
-    for (i = 0; i < x.length; i++) {
+    var x = document.getElementsByClassName("containerTab");
+    for (var i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
     document.getElementById(tabName).style.display = "block";
 }
-function toggleSpoiler(el) {
-    el.classList.toggle('revealed'); 
-    }
 </script>
 
 </body>
